@@ -11,44 +11,61 @@ public class Course {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     private int id;
-    private String createdBy;
     private String course;
-    private String originCountry;
-    private int dateCreated;
-
-    public Course() {
-        this.dateCreated = 15012022;
-    }
-
+    private String courseStart;
+    private int duration ;
+    private boolean free;
+    private boolean rotationOfTeachers;
+    private boolean online;
+    private String learningOutcome;
 
 
 
     public Course(String createdBy, String course, String originCountry, Timestamp dateCreated) {
         this.id = id;
-        this.createdBy = createdBy;
         this.course = course;
-        this.originCountry = originCountry;
-        this.dateCreated = 7012022;
+        this.courseStart = courseStart;
+        this.duration = duration;
+        this.free = free;
+        this.rotationOfTeachers = rotationOfTeachers;
+        this.online = online;
+        this.learningOutcome = learningOutcome;
+    }
+
+    public Course() {
+
     }
 
     public int getId() {
         return id;
     }
 
-    public String getCreatedBy() {
-        return createdBy;
-    }
-
     public String getCourse() {
         return course;
     }
 
-    public String getOriginCountry() {
-        return originCountry;
+    public String getCourseStart() {
+        return courseStart;
     }
 
-    public int getDateCreated() {
-        return dateCreated;
+    public int getDuration() {
+        return duration;
+    }
+
+    public boolean isFree() {
+        return free;
+    }
+
+    public boolean isRotationOfTeachers() {
+        return rotationOfTeachers;
+    }
+
+    public boolean isOnline() {
+        return online;
+    }
+
+    public String getLearningOutcome() {
+        return learningOutcome;
     }
 }
 

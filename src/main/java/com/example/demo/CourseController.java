@@ -1,4 +1,3 @@
-
 package com.example.demo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -15,22 +14,8 @@ public class CourseController {
     CourseRepository repository;
 
     ArrayList<Course> courses = new ArrayList<>();
-
-//    @GetMapping("/welcome")
-//    public String sayHi() {
-//        return "Welcome to serverside programming";
-//    }
-//
-//    @GetMapping("/welcome/{name}")
-//    public String sayHiByName(@PathVariable String name) {
-//        return "Hello" + " "  + name;
-//    }
-//
-//    // welcome?path=true
-
-
     @GetMapping("/courses")
-    public ResponseEntity<List<Course>> getGreetings() {
+    public ResponseEntity<List<Course>> getCourses() {
         return ResponseEntity.status(HttpStatus.OK).body(repository.findAll());
 
 //                repository.findAll();
@@ -83,7 +68,7 @@ public class CourseController {
     @Transactional //it has to wait for the delete to happend in order to give us something back / @update e.g.
     public ResponseEntity<String> deleteCourse(@PathVariable String id) {
         repository.deleteCourseByid(Integer.parseInt(id));
-        return ResponseEntity.status(HttpStatus.OK).body("The course with ID" + id + "has been deleted");
+        return ResponseEntity.status(HttpStatus.OK).body("The course with ID" + " " + id + " " + "has been deleted");
     }
 
 }
