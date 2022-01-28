@@ -32,8 +32,6 @@ public class CourseController {
 
         return ResponseEntity.status(HttpStatus.OK).body(repository.findCourseByid(Integer.parseInt(id)));
 
-//                repository.findCourseByid(Integer.parseInt(id));
-
     }
 
     @GetMapping("/random")
@@ -43,26 +41,17 @@ public class CourseController {
         int randomNum = (int) Math.floor(Math.random() * courses.size());
         return ResponseEntity.status(HttpStatus.OK).body(courses.get(randomNum));
 
-//                courses.get(randomNum);
+
     }
-
-
 
 
     @PostMapping("/course")
     public ResponseEntity<String> createCourse(@RequestBody Course course) {
         repository.save(course);
         return ResponseEntity.status(HttpStatus.CREATED).body("Course added:" + course.getCourse());
-//                "Course added:" + course.getCourse();
+
     }
 
-    //Delete endpoint
-
-//@DeleteMapping("/course/{course}")
-//    public String deleteCourse(@PathVariable Course course) {
-//        courses.remove(course);
-//        return "Removed" + course;
-//}
 
     @DeleteMapping("/course/{id}")
     @Transactional //it has to wait for the delete to happend in order to give us something back / @update e.g.
@@ -71,4 +60,13 @@ public class CourseController {
         return ResponseEntity.status(HttpStatus.OK).body("The course with ID" + " " + id + " " + "has been deleted");
     }
 
+
+    @PutMapping("/courses/{id}")
+    public ResponseEntity<String> updateCourseById(@RequestBody Course course, @PathVariable String id) {
+        Course oldCourse = repository.findCourseByid(Integer.parseInt(id));
+        repository.save(course);
+        return ResponseEntity.status(HttpStatus.OK).body("The course has been updated");
+    }
+
 }
+

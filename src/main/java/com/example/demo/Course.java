@@ -14,14 +14,12 @@ public class Course {
     private String course;
     private String courseStart;
     private int duration ;
-    private boolean free;
-    private boolean rotationOfTeachers;
-    private boolean online;
+    private String free;
+    private String rotationOfTeachers;
+    private String online;
     private String learningOutcome;
 
-
-
-    public Course(String createdBy, String course, String originCountry, Timestamp dateCreated) {
+    public Course(int id, String course, String courseStart, int duration, String free, String rotationOfTeachers, String online, String learningOutcome) {
         this.id = id;
         this.course = course;
         this.courseStart = courseStart;
@@ -32,6 +30,8 @@ public class Course {
         this.learningOutcome = learningOutcome;
     }
 
+
+
     public Course() {
 
     }
@@ -40,32 +40,63 @@ public class Course {
         return id;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String getCourse() {
         return course;
+    }
+
+    public void setCourse(String course) {
+        this.course = course;
     }
 
     public String getCourseStart() {
         return courseStart;
     }
 
+    public void setCourseStart(String courseStart) {
+        this.courseStart = courseStart;
+    }
+
     public int getDuration() {
         return duration;
     }
 
-    public boolean isFree() {
+    public void setDuration(int duration) {
+        this.duration = duration;
+    }
+
+    public String getFree() {
         return free;
     }
 
-    public boolean isRotationOfTeachers() {
+    public void setFree(String free) {
+        this.free = free;
+    }
+
+    public String getRotationOfTeachers() {
         return rotationOfTeachers;
     }
 
-    public boolean isOnline() {
+    public void setRotationOfTeachers(String rotationOfTeachers) {
+        this.rotationOfTeachers = rotationOfTeachers;
+    }
+
+    public String getOnline() {
         return online;
+    }
+
+    public void setOnline(String online) {
+        this.online = online;
     }
 
     public String getLearningOutcome() {
         return learningOutcome;
     }
-}
 
+    public void setLearningOutcome(String learningOutcome) {
+        this.learningOutcome = learningOutcome;
+    }
+}
